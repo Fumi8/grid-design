@@ -1,0 +1,57 @@
+@charset "UTF-8";
+/* CSS Document */
+body{
+	font-size: 2rem;
+/*	width: 800px;*/
+	margin: 0 auto;
+	min-height: 100vh;
+	display: grid;
+	grid-template: 
+		"... ...... ...... ...... ...... ...... ..." 
+		"... header header header header header ..." 150px
+		"... ...... ...... ...... ...... ...... ..." 
+		"... left 	...... center ...... right  ..." 1fr
+		"... ...... ...... ...... ...... ...... ..." 
+		"... footer footer footer footer footer ..." 300px
+		"... ...... ...... ...... ...... ...... ..." 
+		/ auto 150px auto minmax(300px, 1fr) auto 200px auto; 
+}
+/*min-maxの説明 minmax(最小値、最大値)で設定する
+min-maxの指定は楽ではあるが、確認方法が難しいので、都度media screenを指定した方が無難である
+*/
+
+header{
+	grid-area: header;
+}
+
+main{
+	grid-area: center;
+
+}
+
+nav{
+	grid-area: left;
+}
+
+aside{
+	grid-area: right;
+
+}
+
+footer{
+	grid-area: footer;
+
+}
+
+
+/*@media screen and (max-width:1000px){
+	body{
+		grid-template: 
+			"header"  150px
+			"center" 1fr
+			"left  "
+			"right "
+			"footer" 300px;
+	}
+}
+*/

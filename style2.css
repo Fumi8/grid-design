@@ -1,0 +1,62 @@
+@charset "UTF-8";
+/* CSS Document */
+body{
+	font-size: 2rem;
+	width: 800px;
+	margin: 0 auto;
+	min-height: 100vh;
+	display: grid;
+	grid-template: 
+		"... ...... ...... ...... ...... ...... ..." 30px
+		"... header header header header header ..." 80px
+		"... ...... ...... ...... ...... ...... ..." 10px
+		"... left 	...... center ...... right  ..." 1fr
+		"... ...... ...... ...... ...... ...... ..." 10px
+		"... footer footer footer footer footer ..." 300px
+		"... ...... ...... ...... ...... ...... ..." 20px
+		/ auto 150px 10px 1fr 10px 150px auto; 
+}
+/*7列、7行に変える(上下に1行ずつ入れる)、......を周りに入れる 今回幅widthについてはautoを入れて、heightに関してはautoは明記していない。
+gapをフレキシブルに変えられること、子要素に大してmarginプロパティをかけなくても良い*/
+/*単位はcalc(100px +50とかでも)やmin
+*/
+
+header{
+	grid-area: header;
+	background-color: rgb(65, 150, 23);
+}
+
+main{
+	grid-area: center;
+	background-color: rgb(165, 42, 42);
+
+}
+
+nav{
+	grid-area: left;
+	background-color: cadetblue;
+}
+
+aside{
+	grid-area: right;
+	background-color: cornflowerblue;
+
+}
+
+footer{
+	grid-area: footer;
+	background-color: rgb(45, 12, 60);
+
+}
+
+
+@media screen and (max-width:1000px){
+	body{
+		grid-template: 
+			"header"  150px
+			"center" 1fr
+			"left  "
+			"right "
+			"footer" 300px;
+	}
+}

@@ -1,0 +1,56 @@
+@charset "UTF-8";
+/* CSS Document */
+body{
+	font-size: 2rem;
+	width: 800px;
+	margin: 0 auto;
+	min-height: 100vh;
+	display: grid;
+	grid-template: 
+		"header header header" 150px
+		"left 	test right" 1fr
+		"footer footer footer" 300px
+		/ 150px 1fr 200px; 
+}
+/*templateの名前は自由につけてもよい:参照 test*/
+/*min-heightは最低限のheight*/
+/*固定幅にするときはmargin 0 autoとwidthを設定する*/
+/*横幅と高さもtemplateで指定できる、何も指定してなかったらauto,、そのコンテンツが持っている高さと同じ高さ
+いっぱいいっぱい:最大値にするときは1fr*/
+/*1frが2こある場合はそれらは同じ高さになる。2frなら1frの2倍の高さになる*/
+/*横幅の指定は幅を入れたいものの下に/を入れる /left center right; の順番で*/
+
+header{
+	grid-area: header;
+}
+
+main{
+	grid-area: test;
+
+}
+
+nav{
+	grid-area: left;
+}
+
+aside{
+	grid-area: right;
+
+}
+
+footer{
+	grid-area: footer;
+
+}
+
+
+@media screen and (max-width:1000px){
+	body{
+		grid-template: 
+			"header"  150px
+			"test  " 1fr
+			"left  "
+			"right "
+			"footer" 300px;
+	}
+}
